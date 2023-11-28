@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" th:action="@{'/sinhvien/save'}" th:object="${sinhVienModel}"
+          modelattribute="sinhVienModel" onsubmit="validateInput(event)" >
+        <label> Số Chứng Minh Nhân dân </label>
+        <input type="text" id="soCMND" name="" th:field="*{soCMND}"  placeholder="So CMND"> <br>
+
+        <label> Họ và tên </label>
+        <input type="text" name="hoTen" th:field="*{hoTen}"  placeholder="Họ và tên"> <br>
+
+        <label> Email </label>
+        <input type="text" name="email" th:field="*{email}"  placeholder="email"> <br>
+
+        <label> Số Điện thoại </label>
+        <input type="text" name="email" th:field="*{SDT}"  placeholder="SDT"> <br>
+
+        <label> Địa chỉ </label>
+        <input type="text" name="email" th:field="*{diaChi}"  placeholder="Địa chỉ"> <br>
+
+        <label> Mã Trường </label>
+        <select id="maTruong" name="maTruong">
+            <option value="">-- Chọn trường --</option>
+            <option th:each="truong : ${listTruong}" th:value="${truong.maTruong}" th:text="${truong.tenTruong}"></option>
+        </select> <br>
+
+        <label> Mã Ngành </label>
+        <select id="maNganh" name="maNganh" >
+            <option value="">-- Chọn Ngành --</option>
+            <option th:each="nganh : ${listNganh}" th:value="${nganh.maNganh}" th:text="${nganh.tenNganh}"></option>
+        </select>  <br>
+
+        <label> Hệ tốt nghiệp </label>
+        <input type="text" name="heTotNghiep" th:field="${totNghiepModel.heTotNghiep}"  placeholder="Hệ tốt nghiệp"> <br>
+
+        <label> Ngày tốt nghiệp </label>
+        <input type="date" name="ngayTotNghiep" th:field="${totNghiepModel.ngayTotNghiep}"  placeholder="Ngày tốt nghiệp"> <br>
+
+        <label> Loại tốt nghiêp </label>
+        <input type="text" name="loaiTotNghiep" th:field="${totNghiepModel.loaiTotNghiep}"  placeholder="Loại tốt nghiêp"> <br>
+
+        <button onclick="">Submit</button>
+    </form>
+
+    <script>
+        function validateInput(event) {
+            var SoCMND = document.getElementById("soCMND").value;
+            var selectIndexTruong = document.getElementById("maTruong").selectedIndex;
+            var selectIndexNganh = document.getElementById("maNganh").selectedIndex;
+            if (SoCMND === "") {
+                alert("Vui lòng nhập dữ liệu CMND");
+                event.preventDefault();
+                return;
+            }
+            if (selectIndexTruong === 0 || selectIndexNganh == 0 ) {
+                alert("Vui lòng chọn một lựa chọn trường và ngành ");
+                event.preventDefault();
+                return;
+            }
+            // Xử lý logic khi dữ liệu hợp lệ
+            // ...
+        }
+    </script>
+</body>
+</html>

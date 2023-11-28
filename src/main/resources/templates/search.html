@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form method="get" action="search">
+    <label> Search </label>
+    <input type="text" name="keyword" placeholder="Search">
+<!--    <select id="ma" name="malist" >-->
+<!--        <option value="">&#45;&#45; Chọn Ngành &#45;&#45;</option>-->
+<!--    </select>  <br>-->
+
+    <input type="submit" value="Search">
+</form>
+
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th>So CMND</th>
+            <th> Họ tên</th>
+            <th>Địa chỉ</th>
+            <th>SDT</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" sinhvien : ${listSinhvien}">
+            <td th:text="${sinhvien.soCMND}"></td>
+            <td th:text="${sinhvien.hoTen}"></td>
+            <td th:text="${sinhvien.diaChi}"></td>
+            <td th:text="${sinhvien.SDT}"></td>
+        </tr>
+        <tr th:each=" sinhvien : ${listSinhvien}">
+            <td th:text="${sinhvien.soCMND}"></td>
+            <td th:text="${sinhvien.hoTen}"></td>
+            <td th:text="${sinhvien.diaChi}"></td>
+            <td th:text="${sinhvien.SDT}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

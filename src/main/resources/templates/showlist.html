@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--<form method="get" action="search">-->
+<!--    <label> Search </label>-->
+<!--    <input type="text" name="keyword" placeholder="Search">-->
+<!--    &lt;!&ndash;    <select id="ma" name="malist" >&ndash;&gt;-->
+<!--    &lt;!&ndash;        <option value="">&#45;&#45; Chọn Ngành &#45;&#45;</option>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </select>  <br>&ndash;&gt;-->
+
+<!--    <input type="submit" value="Search">-->
+<!--</form>-->
+
+<table class="table">
+    <thead class="thead-light">
+    <tr>
+        <th>So CMND</th>
+        <th> Họ tên</th>
+        <th>Mã Ngành (Tốt nghiệp)</th>
+        <th>Mã Trường (tốt nghiệp)</th>
+        <th>Mã Ngành công ty (công ty)</th>
+        <th>Tên Công Ty</th>
+        <th>Thời gian làm việc</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each=" list : ${listJoin}">
+        <td th:text="${list.get('socmnd')}"></td>
+        <td th:text="${list.get('hoten')}"></td>
+        <td th:text="${list.get('manganh')}"></td>
+        <td th:text="${list.get('matruong')}"></td>
+        <td th:text="${list.get('manganh')}"></td>
+        <td th:text="${list.get('tencongty')}"></td>
+        <td th:text="${list.get('thoigianlamviec')}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
